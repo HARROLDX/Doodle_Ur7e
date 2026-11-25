@@ -1,0 +1,181 @@
+base_frame: base_link
+ik_link: wrist_3_link
+group: ur_manipulator
+joint_names:
+- shoulder_pan_joint
+- shoulder_lift_joint
+- elbow_joint
+- wrist_1_joint
+- wrist_2_joint
+- wrist_3_joint
+action: /scaled_joint_trajectory_controller/follow_joint_trajectory
+joint_states: /joint_states
+link_quaternion:
+- 0.0
+- 1.0
+- 0.0
+- 0.0
+tip_in_link:
+- 0.0
+- 0.0
+- 0.22
+workspace_min:
+- -0.35
+- 0.15
+- -0.3
+workspace_max:
+- 0.35
+- 0.85
+- 0.45
+verified:
+  pen_tcp: true
+  camera_mount: true
+  workspace: true
+  scene: true
+paper:
+  width: 0.15
+  height: 0.15
+  margin: 0.015
+  marker_size: 0.025
+camera:
+  image_topic: /camera/camera/color/image_raw
+  info_topic: /camera/camera/color/camera_info
+  root_frame: camera_link
+  optical_frame: camera_color_optical_frame
+  mount_link: wrist_3_link
+  mount_position:
+  - -0.025
+  - 0.13
+  - 0.0
+  mount_quaternion:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+motion:
+  clearance: 0.015
+  max_step: 0.002
+  joint_speed: 0.1
+  joint_acceleration: 0.2
+  tip_speed: 0.015
+  max_joint_step: 0.15
+  max_approach: 0.25
+  max_duration: 7200.0
+  execution_timeout: 14400.0
+world_boxes:
+- id: doodle_ground
+  center:
+  - 0.0
+  - 0.0
+  - -0.027
+  size:
+  - 3.0
+  - 3.0
+  - 0.05
+- id: doodle_table
+  center:
+  - 0.0
+  - 0.5
+  - 0.105
+  size:
+  - 0.48
+  - 0.4
+  - 0.03
+- id: doodle_table_leg_0
+  center:
+  - -0.21
+  - 0.33
+  - 0.045
+  size:
+  - 0.035
+  - 0.035
+  - 0.09
+- id: doodle_table_leg_1
+  center:
+  - 0.21
+  - 0.33
+  - 0.045
+  size:
+  - 0.035
+  - 0.035
+  - 0.09
+- id: doodle_table_leg_2
+  center:
+  - -0.21
+  - 0.67
+  - 0.045
+  size:
+  - 0.035
+  - 0.035
+  - 0.09
+- id: doodle_table_leg_3
+  center:
+  - 0.21
+  - 0.67
+  - 0.045
+  size:
+  - 0.035
+  - 0.035
+  - 0.09
+attached_boxes:
+- id: doodle_camera
+  center:
+  - -0.025
+  - 0.13
+  - -0.025
+  size:
+  - 0.1
+  - 0.08
+  - 0.06
+  touch_links:
+  - wrist_3_link
+- id: doodle_gripper
+  center:
+  - 0.0
+  - 0.0
+  - 0.085
+  size:
+  - 0.08
+  - 0.065
+  - 0.17
+  touch_links:
+  - wrist_3_link
+  - tool0
+- id: doodle_pen
+  center:
+  - 0.0
+  - 0.0
+  - 0.185
+  size:
+  - 0.012
+  - 0.012
+  - 0.06
+  touch_links:
+  - wrist_3_link
+  - tool0
+- id: doodle_mount_plate
+  center:
+  - 0.0
+  - 0.055
+  - -0.009
+  size:
+  - 0.065
+  - 0.14
+  - 0.012
+  touch_links:
+  - wrist_3_link
+  - tool0
+- id: doodle_mount_riser
+  center:
+  - -0.025
+  - 0.119
+  - -0.021
+  size:
+  - 0.09
+  - 0.008
+  - 0.036
+  touch_links:
+  - wrist_3_link
+  - tool0
+execution_environment: isaac
+use_sim_time: true

@@ -1,0 +1,2 @@
+<?xml version="1.0"?>
+<package format="3"><name>doodle_isaac_hardware</name><version>0.1.0</version><description>Simulation-only Isaac topic hardware for the actual UR scaled controller.</description><maintainer email="dev@example.com">Doodle UR7e</maintainer><license>MIT</license><buildtool_depend>ament_cmake</buildtool_depend><depend>hardware_interface</depend><depend>pluginlib</depend><depend>rclcpp</depend><depend>sensor_msgs</depend><export><build_type>ament_cmake</build_type></export></package>

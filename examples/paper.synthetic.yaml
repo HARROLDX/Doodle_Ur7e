@@ -1,0 +1,6 @@
+base_frame: base_link
+paper_size: [0.15, 0.15]
+position: [-0.075, 0.425, -0.275]
+quaternion: [0.0, 0.0, 0.0, 1.0]
+verified: false
+synthetic: true

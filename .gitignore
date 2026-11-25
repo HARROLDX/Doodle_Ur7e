@@ -1,0 +1,19 @@
+build/
+install/
+log/
+runs/
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+config/local.yaml
+*.local.yaml
+.DS_Store
+# User artwork, conversations and generated images stay local by default.
+images/generated/*
+!images/generated/.gitkeep
+images/processed/*
+!images/processed/.gitkeep
+images/external/*
+!images/external/smiley.png

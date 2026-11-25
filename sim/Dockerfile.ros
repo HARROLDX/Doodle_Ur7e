@@ -1,0 +1,5 @@
+# Extend the validated Humble environment; the base recipe is scripts/Dockerfile.humble.
+ARG BASE_IMAGE=doodle-ur7e-humble:validated
+FROM ${BASE_IMAGE}
+USER root
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ffmpeg && rm -rf /var/lib/apt/lists/*

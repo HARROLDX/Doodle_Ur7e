@@ -1,0 +1,52 @@
+# All positions in meters; quaternions xyzw. EXAMPLES MUST BE MEASURED.
+base_frame: base_link
+ik_link: wrist_3_link
+group: ur_manipulator
+joint_names: [shoulder_pan_joint, shoulder_lift_joint, elbow_joint, wrist_1_joint, wrist_2_joint, wrist_3_joint]
+action: /scaled_joint_trajectory_controller/follow_joint_trajectory
+joint_states: /joint_states
+link_quaternion: [0.0, 1.0, 0.0, 0.0]
+tip_in_link: [0.0, 0.0, 0.22]
+workspace_min: [-0.35, 0.15, -0.30]
+workspace_max: [0.35, 0.85, 0.45]
+verified:
+  pen_tcp: false
+  camera_mount: false
+  workspace: false
+  scene: false
+paper:
+  width: 0.150
+  height: 0.150
+  margin: 0.015
+  marker_size: 0.025
+camera:
+  image_topic: /camera/camera/color/image_raw
+  info_topic: /camera/camera/color/camera_info
+  root_frame: camera_link
+  optical_frame: camera_color_optical_frame
+  mount_link: wrist_3_link
+  # Lab 7 T_wrist_color seed; verify the actual mount before use.
+  mount_position: [-0.025, 0.13, 0.0]
+  mount_quaternion: [0.0, 0.0, 0.0, 1.0]
+motion:
+  # Enable in measured local.yaml after verifying live MoveIt and driver URDFs.
+  geometry_tip_timing: false
+  clearance: 0.015
+  max_step: 0.002
+  joint_speed: 0.10
+  joint_acceleration: 0.20
+  tip_speed: 0.015
+  max_joint_step: 0.15
+  max_approach: 0.15
+  max_duration: 7200.0
+  execution_timeout: 14400.0
+# Boxes must match YOUR workstation. Scene command never removes others' objects.
+world_boxes:
+  - {id: doodle_table, center: [0.0, 0.0, -0.30], size: [2.0, 2.5, 0.05]}
+  - {id: doodle_wall, center: [0.0, -1.0, 0.5], size: [2.0, 0.5, 3.0]}
+  - {id: doodle_computer, center: [0.10, 1.0, 0.02], size: [0.35, 0.25, 1.0]}
+attached_boxes:
+  - {id: doodle_camera, center: [0.025, 0.10, 0.0], size: [0.10, 0.08, 0.06], touch_links: [wrist_3_link]}
+  - {id: doodle_gripper, center: [0.0, 0.0, 0.085], size: [0.065, 0.065, 0.17], touch_links: [wrist_3_link, tool0]}
+  # Pen body stops 5mm before tip; no blanket pen/table collision exemption.
+  - {id: doodle_pen, center: [0.0, 0.0, 0.185], size: [0.012, 0.012, 0.06], touch_links: [wrist_3_link, tool0]}

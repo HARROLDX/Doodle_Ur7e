@@ -1,0 +1,1 @@
+<library path="doodle_isaac_hardware"><class name="doodle_isaac_hardware/System" type="doodle_isaac_hardware::System" base_class_type="hardware_interface::SystemInterface"><description>Isaac simulation only, actual joint feedback, fixed 100% speed scaling.</description></class></library>
